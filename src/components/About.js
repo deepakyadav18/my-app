@@ -1,29 +1,15 @@
 import React,{useState} from 'react'
 
-export default function About() {
+export default function About(props) {
 
-    const [myStyle,setMyStyle]=useState({
-        color:'black',
-        backgroundColor:'white'
-    })
+    // const [myStyle,setMyStyle]=useState({
+    //     color:'black',
+    //     backgroundColor:'white'
+    // })
 
-    const [btnText, setBtnText] = useState("Enable Dark Mode");
-
-    const toggleStyle=()=>{
-        if(myStyle.color==='black'){
-            setMyStyle({
-                color:'white',
-                backgroundColor:'black'
-            })
-            setBtnText("Enable Light Mode")
-        }
-        else{
-            setMyStyle({
-                color:'black',
-                backgroundColor:'white'
-            })
-            setBtnText("Enable Dark Mode")
-        }
+    let myStyle={
+        color:props.mode==='dark'?'white':'black',
+        backgroundColor:props.mode==='dark'?'black':'white',
     }
 
     return (
@@ -33,12 +19,12 @@ export default function About() {
             <div className="accordion-item">
                 <h2 className="accordion-header" id="headingOne">
                 <button className="accordion-button" style={myStyle} type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Accordion Item #1
+                    Analyze your text
                 </button>
                 </h2>
                 <div id="collapseOne" className="accordion-collapse collapse show" style={myStyle} aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                 <div className="accordion-body">
-                    <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    TextUtils givves you a way to analyze your text quickly and efficientyl . be it word count or character count or reading time.
                 </div>
                 </div>
             </div>
@@ -66,9 +52,6 @@ export default function About() {
                 </div>
                 </div>
             </div>
-            </div>
-            <div className="container my-3">
-                <button onClick={toggleStyle} type="button" className="btn btn-primary">{btnText}</button>
             </div>
         </div>
     )

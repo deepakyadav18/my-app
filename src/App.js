@@ -31,13 +31,13 @@ function App() {
       setMode('dark');
       document.body.style.backgroundColor='#1e4448';
       showAlert("Dark Mode has been enabled","success");
-      document.title="TextUtils - Dark Mode"
+      // document.title="TextUtils - Dark Mode"
     }
     else{
       setMode('light');
       document.body.style.backgroundColor='white';
       showAlert("Light Mode has been enabled","success");
-      document.title="TextUtils - Light Mode"
+      // document.title="TextUtils - Light Mode"
     }
   }
 
